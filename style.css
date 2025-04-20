@@ -1,0 +1,410 @@
+.Logo_Tienda {
+  width: 50px;
+  height: auto;
+  
+}
+
+.Titulo_Tienda {
+  font-family: 'Winky Rough', sans-serif;
+  font-size: 38px;
+  font-weight: bold;
+  color: #705DA4 !important;  
+  text-shadow: 1px 1px 3px rgba(138, 120, 139, 0.5);
+  display: flex;
+  gap: 10px;
+}
+
+.navbar1 {
+  background-color: rgba(0, 0, 0, .75) !important;
+  backdrop-filter: blur(10px) !important;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1030;
+  
+}
+
+.navbar2 {
+  background-color: rgba(0, 0, 0, .75) !important;
+  backdrop-filter: blur(10px) !important;
+  justify-content: space-between;
+  position: fixed;
+  top: 60px;
+  width: 100%;
+  z-index: 1029;
+  
+}
+
+body  {
+  background-color: #b09ce996 !important;
+}
+
+.contenedor-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin:0;
+}
+
+.navegacion {
+  padding: 0 15px;
+  size: 30px;
+}
+
+.tipografia {
+    width: 150px;
+    height: auto;
+}
+
+.nav-item {
+  font-family: 'Winky Rough', sans-serif;
+  font-size: 20px;
+  color: #705DA4 !important;
+  text-shadow: 1px 1px 3px rgba(138, 120, 139, 0.5);
+}
+
+.imagenes_tendencias {
+  margin-top: 20px;
+  padding-top: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  width: 100%;
+  height: 430px;
+  overflow: hidden;
+}
+
+.imagenes_tendencias img {
+  width: 0px;
+  flex-grow: 1;
+  object-fit: cover;
+  opacity: 0.8;
+  transition: all 0.5s ease;
+}
+
+.imagenes_tendencias img:hover {
+  cursor: crosshair;
+  width: 300px;
+  opacity: 1;
+  filter: contrast(120%);
+}
+
+.coleccion-header {
+  margin-top: 130px;
+  margin-bottom: 20px;
+  font-family: 'Winky Rough', sans-serif;
+  color: #705DA4;
+  font-size: 32px;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.card{
+  font-family: 'Winky Rough', sans-serif;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+.destacados {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.productos-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.tarjeta {
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  width: 300px;
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+.tarjeta:hover {
+  transform: scale(1.05);
+}
+.tarjeta img {
+  max-width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+.tarjeta button, #pagarBtn {
+  margin-top: 10px;
+  background-color: #705DA4;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+#pagarBtn {
+  margin-top: 30px;
+  padding: 12px 25px;
+  font-size: 16px;
+  border-radius: 10px;
+}
+
+.card-link {
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+.card-link:hover {
+  transform: translateY(-5px);
+}
+
+.card {
+  border: none;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.card-img-top {
+  height: 250px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.card:hover .card-img-top {
+  transform: scale(1.05);
+}
+
+/* Estilos unificados para todas las tarjetas */
+#productosDestacados .card,
+#productos-categoria .card {
+    background: #f8f9fa;
+    border: none;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+}
+
+#productosDestacados .card:hover,
+#productos-categoria .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.card-img-top {
+    height: 250px;
+    object-fit: cover;
+    border-radius: 15px 15px 0 0;
+}
+
+.btn-purple {
+    background: #705DA4;
+    color: white;
+    border-radius: 25px;
+    padding: 8px 25px;
+}
+
+.btn-purple:hover {
+    background: #5d4a8c;
+    color: white;
+}
+
+.destacados {
+  background-color: #d1c4e9;
+  padding: 2rem 0;
+}
+
+.destacado-card {
+  border: none;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  aspect-ratio: 1/1.2;
+}
+
+.destacado-img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
+}
+
+.btn-destacado {
+  background-color: #705DA4;
+  color: white;
+  border-radius: 20px;
+  padding: 5px 20px;
+}
+
+.btn-destacado:hover {
+  background-color: #5d4a8c;
+  color: white;
+}
+
+.precio-destacado {
+  font-weight: 700;
+  color: #705DA4;
+  font-size: 1.2rem;
+  margin: 10px 0;
+}
+
+.destacados .card {
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.destacados .card:hover {
+  transform: scale(1.03);
+}
+
+.destacados .card-img-top {
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
+}
+
+.destacados .card-title {
+  font-weight: bold;
+  color: #705DA4;
+}
+
+.destacados .card-price {
+  color: #444;
+  font-size: 1.1rem;
+}
+
+.destacados .btn-carrito {
+  background-color: #705DA4;
+  color: white;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+/* Ícono del carrito */
+#carritoIcon {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  top: auto;
+  background: #705DA4;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 50px; height: 50px;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1050;
+  cursor: pointer;
+}
+#contadorCarrito {
+  position: absolute;
+  top: 5px; right: 5px;
+  font-size: 0.75rem;
+}
+
+/* Menú lateral */
+#carritoMenu {
+  position: fixed;
+  top: 0; right: 0;
+  width: 320px;
+  max-width: 80%;
+  height: 100vh;
+  background: white;
+  box-shadow: -4px 0 12px rgba(0,0,0,0.2);
+  padding: 1.5rem;
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+  z-index: 1040;
+  overflow-y: auto;
+}
+/* Abierto */
+#carritoMenu.open {
+  transform: translateX(0);
+}
+
+/* Lista dentro del carrito */
+#listaCarrito li {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+  align-items: center;
+}
+#listaCarrito li .qty-controls {
+  display: flex;
+}
+#listaCarrito li .qty-controls button {
+  width: 24px; height: 24px;
+  border: none; background: #705DA4; color: white;
+  font-weight: bold; border-radius: 4px;
+  margin: 0 4px;
+  cursor: pointer;
+}
+
+/* Total y botón */
+#totalCarrito {
+  font-size: 1.1rem;
+}
+#pagarBtn {
+  width: 100%;
+  background: #705DA4;
+  color: white;
+  border: none;
+  padding: 0.75rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+/* Responsive móvil: menú ocupa casi toda la pantalla */
+@media (max-width: 576px) {
+  #carritoMenu {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+/* Estilos específicos para página de resultados */
+#titulo-busqueda {
+  color: #705DA4;
+  font-family: 'Winky Rough', sans-serif;
+  font-size: 2rem;
+}
+
+#resultados-busqueda .card {
+  background: #f8f9fa;
+  border-radius: 15px;
+  transition: all 0.3s ease;
+}
+
+#resultados-busqueda .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+#productosDestacados .card,
+#productos-categoria .card,
+#resultados-busqueda .card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.card-body {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
