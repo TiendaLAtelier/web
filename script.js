@@ -12,15 +12,15 @@ if (icono && menu) {
   icono.addEventListener('click', () => menu.classList.toggle('open'));
 }
 
-function agregarAlCarrito(nombre, precio) {
+function agregarAlCarrito(nombre, precio, cantidad = 1) {
   const existente = carrito.find(item => item.nombre === nombre);
   if (existente) {
-    existente.cantidad++;
+    existente.cantidad += cantidad;
   } else {
     carrito.push({ 
       nombre, 
       precio: parseFloat(precio), 
-      cantidad: 1 
+      cantidad: parseInt(cantidad) || 1
     });
   }
   actualizarCarritoUI();
@@ -34,33 +34,61 @@ function eliminarProducto(index) {
 }
 
 function actualizarCarritoUI() {
+  const ENVIO = 12000;
+  const MINIMO_ENVIO_GRATIS = 70000;
+
+  // Calcular subtotal
+  const subtotal = carrito.reduce((sum, p) => sum + (p.precio * p.cantidad), 0);
+  
+  // Mostrar subtotal
+  document.getElementById('subtotalCarrito').textContent = `$${subtotal.toFixed(2)}`;
+  
+  // Determinar si el envío es gratis
+  const envioGratis = subtotal >= MINIMO_ENVIO_GRATIS;
+  const envioCarrito = document.getElementById('envioCarrito');
+  
+  if (envioGratis) {
+    envioCarrito.innerHTML = `<span class="text-decoration-line-through">$${ENVIO.toLocaleString()}</span> <span class="text-success">GRATIS</span>`;
+  } else {
+    envioCarrito.textContent = `$${ENVIO.toLocaleString()}`;
+  }
+  
+  // Calcular total
+  const total = envioGratis ? subtotal : subtotal + ENVIO;
+  document.getElementById('totalCarrito').textContent = `$${total.toFixed(2)}`;
+  
+  // Actualizar lista de productos
+  const lista = document.getElementById('listaCarrito');
+  if (lista) {
+    lista.innerHTML = carrito.map((item, idx) => `
+      <li class="mb-2 pb-2 border-bottom">
+        <div class="d-flex justify-content-between">
+          <span>${item.nombre} x${item.cantidad}</span>
+          <span>$${(item.precio * item.cantidad).toFixed(2)}</span>
+        </div>
+        <div class="d-flex justify-content-end mt-1">
+          <button class="btn btn-sm btn-outline-secondary me-2" 
+                  onclick="modificarCantidad(${idx}, -1)">
+            <i class="fas fa-minus"></i>
+          </button>
+          <button class="btn btn-sm btn-outline-secondary" 
+                  onclick="modificarCantidad(${idx}, 1)">
+            <i class="fas fa-plus"></i>
+          </button>
+          <button class="btn btn-sm btn-outline-danger ms-2" 
+                  onclick="eliminarProducto(${idx})">
+            <i class="fas fa-trash"></i>
+          </button>
+        </div>
+      </li>
+    `).join('');
+  }
+  
+  // Actualizar contador
   if (contador) {
     const totalItems = carrito.reduce((sum, p) => sum + p.cantidad, 0);
     contador.textContent = totalItems;
     contador.style.display = totalItems ? 'inline-block' : 'none';
-  }
-
-  if (lista && totalSpan) {
-    lista.innerHTML = '';
-    carrito.forEach((item, idx) => {
-      const li = document.createElement('li');
-      li.innerHTML = `
-        <span>${item.nombre}</span>
-        <div class="qty-controls">
-          <button onclick="modificarCantidad(${idx}, -1)">-</button>
-          <span>${item.cantidad}</span>
-          <button onclick="modificarCantidad(${idx}, +1)">+</button>
-        </div>
-        <span>$${(item.precio * item.cantidad).toFixed(2)}</span>
-        <button class="delete-btn" onclick="eliminarProducto(${idx})">
-          <i class="fa-solid fa-trash"></i>
-        </button>
-      `;
-      lista.appendChild(li);
-    });
-    
-    const total = carrito.reduce((sum, p) => sum + p.precio * p.cantidad, 0);
-    totalSpan.textContent = `$${total.toFixed(2)}`;
   }
 }
 
@@ -77,17 +105,23 @@ if (pagarBtn) {
   pagarBtn.addEventListener('click', () => {
     if (!carrito.length) return alert('Tu carrito está vacío.');
     
-    const mensaje = carrito.map(p => 
+    const ENVIO = 12000;
+    const MINIMO_ENVIO_GRATIS = 70000;
+    const subtotal = carrito.reduce((sum, p) => sum + (p.precio * p.cantidad), 0);
+    const envioGratis = subtotal >= MINIMO_ENVIO_GRATIS;
+    const total = envioGratis ? subtotal : subtotal + ENVIO;
+    
+    let mensaje = carrito.map(p => 
       `• ${p.nombre} x${p.cantidad} = $${(p.precio * p.cantidad).toFixed(2)}`
     ).join('%0A');
     
-    const total = carrito.reduce((sum, p) => sum + p.precio * p.cantidad, 0);
-    const url = `https://wa.me/573113812334?text=Hola!%20Quiero%20comprar:%0A${mensaje}%0A%0ATotal:%20$${total.toFixed(2)}`;
+    mensaje += `%0A%0ASubtotal: $${subtotal.toFixed(2)}`;
+    mensaje += envioGratis 
+      ? `%0AEnv%C3%ADo: GRATIS (Compra mayor a $70,000)` 
+      : `%0AEnv%C3%ADo: $12,000`;
+    mensaje += `%0ATotal: $${total.toFixed(2)}`;
     
-    window.open(url, '_blank');
-    carrito.length = 0;
-    actualizarCarritoUI();
-    localStorage.removeItem('carrito');
+    window.open(`https://wa.me/573113812334?text=Hola!%20Quiero%20comprar:%0A${mensaje}`, '_blank');
   });
 }
 
@@ -195,25 +229,29 @@ async function inicializarPagina() {
 
 // Función genérica para renderizar productos
 function renderProductos(productos, contenedorId) {
-    const contenedor = document.getElementById(contenedorId);
-    if (!contenedor) return;
-  
-    contenedor.innerHTML = productos.map(p => `
-      <div class="col-6 col-lg-3 mb-4"> 
-        <div class="card h-100 shadow">
-          <img src="${p.imagen}" class="card-img-top" alt="${p.nombre}">
-          <div class="card-body text-center">
-            <h5 class="card-title text-purple">${p.nombre}</h5>
-            <p class="text-muted">$${p.precio}</p>
-            <button class="btn btn-purple" 
-                    onclick="agregarAlCarrito('${p.nombre}', ${p.precio})">
-              <i class="fas fa-cart-plus"></i> Añadir al carrito
-            </button>
-          </div>
+  const contenedor = document.getElementById(contenedorId);
+  if (!contenedor) return;
+
+  contenedor.innerHTML = productos.map(p => `
+    <div class="col-6 col-lg-3 mb-4"> 
+      <div class="card h-100 shadow">
+        <img src="${p.imagen}" class="card-img-top" alt="${p.nombre}" style="cursor:pointer" onclick="irADetalle(${JSON.stringify(p).replace(/"/g, '&quot;')})">
+        <div class="card-body text-center">
+          <h5 class="card-title text-purple" style="cursor:pointer" onclick="irADetalle(${JSON.stringify(p).replace(/"/g, '&quot;')})">${p.nombre}</h5>
+          <p class="text-muted">$${p.precio}</p>
+          <button class="btn btn-purple" 
+                  onclick="agregarAlCarrito('${p.nombre}', ${p.precio})">
+            <i class="fas fa-cart-plus"></i> Añadir al carrito
+          </button>
+          <button class="btn btn-outline-secondary mt-2" 
+                  onclick="irADetalle(${JSON.stringify(p).replace(/"/g, '&quot;')})">
+            Ver detalles
+          </button>
         </div>
       </div>
-    `).join('');
-  }
+    </div>
+  `).join('');
+}
 
 // Iniciar cuando el DOM esté listo
 document.addEventListener('DOMContentLoaded', inicializarPagina);
