@@ -1,53 +1,327 @@
 <!DOCTYPE html>
-<html lang="es" id="pagina-detalle">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Detalle del Producto | L'Atelier</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="styles.css"> <!-- tu CSS -->
-  <script src="https://kit.fontawesome.com/a2e0f1f0c7.js" crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Winky+Rough:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://kit.fontawesome.com/0347546ae9.js" crossorigin="anonymous"></script>
 </head>
 <body>
+<!-- Navbar (igual que en otras páginas) -->
+<nav id="navbar" class="row navbar1 navbar-dark bg-light navegacion gx-0">
+  <div class="container contenedor-navbar col-1">
+    <a class="navbar-brand Titulo_Tienda" href="index.html"><img src="images/Logo_L'atelier.svg" alt="Logo_Tienda" class="Logo_Tienda" href="index.html"></a>
+  </div>
+  <div class="col-10 d-flex justify-content-center align-items-center">
+    <a href="index.html"><img src="images/Logo_L'atelier_Tipografia.svg" alt="logotipo" class="tipografia" href="index.html"></a></div>
+    <div class="col-1 d-flex justify-content-end align-items-center">
+      <a class="navbar-brand Titulo_Tienda" href="index.html"><img src="images/Logo_L'atelier.svg" alt="Logo_Tienda" class="Logo_Tienda" href="index.html"></a>
+    </div>    
+</nav>
 
-  <div class="container my-5">
+<!-- Navbar 2 -->
+<nav class="navbar2 navbar-expand-sm navbar-dark ">
+    <div class="container-fluid">     
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto  mb-auto">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="pines.html">Pines</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="cuadros.html">Cuadros</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="personalizados.html">Personalizados</a>
+              </li>
+             
+              <li class="nav-item">
+                <a class="nav-link active" href="#nosotros">Nosotros</a>
+              </li>
+            </ul>
+        <form id="searchForm" class="d-flex" action="busqueda.html" method="GET">
+          <input 
+            id="searchInput"
+            class="form-control me-2" 
+            type="search" 
+            name="q"
+            placeholder="Buscar" 
+            aria-label="Buscar"
+            required
+          >
+          <button class="btn btn-outline-light" type="submit">Buscar</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Barra de envío gratis -->
+<div class="barra-envio">
+    <i class="fas fa-truck icono-envio"></i>
+    ¡ENVÍOS GRATIS EN TODA COLOMBIA POR COMPRAS SUPERIORES A $70.000!
+  </div>
+
+<!-- Carrito: icono + contador -->
+<button id="carritoIcon" aria-label="Abrir carrito">
+    <i class="fa-solid fa-cart-shopping"></i>
+    <span id="contadorCarrito" class="badge bg-danger">0</span>
+  </button>
+
+ <!-- Menú lateral (oculto por defecto) -->
+<div id="carritoMenu" aria-hidden="true">
+    <h5>Tu carrito</h5>
+    <ul id="listaCarrito" class="list-unstyled mb-3"></ul>
+    
+    <div id="resumenCompra">
+      <div class="d-flex justify-content-between">
+        <span>Subtotal:</span>
+        <span id="subtotalCarrito">$0.00</span>
+      </div>
+      <div class="d-flex justify-content-between">
+        <span>Envío:</span>
+        <span id="envioCarrito">$12,000</span>
+      </div>
+      <div class="d-flex justify-content-between mt-2">
+        <strong>Total:</strong>
+        <strong id="totalCarrito">$0.00</strong>
+      </div>
+    </div>
+    
+    <button id="pagarBtn" class="btn btn-success w-100 mt-3">Pagar por WhatsApp</button>
+  </div>
+
+  <div class="container mt-5">
+    <div class="input-group mb-4">
+      <span class="input-group-text"><i class="fa-solid fa-magnifying-glass"></i></span>
+      <input
+        type="text"
+        id="searchInput"
+        class="form-control"
+        placeholder="Buscar productos… Ej: Homero"
+        aria-label="Buscar productos">
+    </div>
+  </div>
+  
+
+<!-- Contenido del producto -->
+<div class="container my-5 py-5">
+  <div class="row">
+    <!-- Imágenes del producto -->
+<div class="col-md-6">
+    <!-- Imagen principal -->
+    <div class="mb-3 ratio ratio-1x1 bg-light rounded-3 overflow-hidden">
+      <img id="imagenPrincipal" class="img-fluid w-100 h-100 object-fit-cover" src="" alt="Imagen del producto">
+    </div>
+    
+    <!-- Galería de miniaturas -->
+    <div id="galeriaImagenes" class="d-flex gap-2 overflow-auto py-2" style="min-height: 80px;">
+      <!-- Las miniaturas se generarán aquí con JavaScript -->
+    </div>
+  </div>
+    
+    <!-- Información del producto -->
+    <div class="col-6">
+      <h1 id="nombreProducto" class="mb-3" style="color: #705DA4; font-family: 'Winky Rough', sans-serif;"></h1>
+      <p id="descripcionProducto" class="lead"></p>
+      <h3 id="precioProducto" class="my-4" style="color: #705DA4;"></h3>
+      
+      <div class="mb-4">
+        <label for="cantidadProducto" class="form-label">Cantidad:</label>
+        <input type="number" id="cantidadProducto" value="1" min="1" class="form-control w-25">
+      </div>
+      
+      <button id="botonAgregar" class="btn btn-purple">
+        <i class="fas fa-cart-plus"></i> Añadir al carrito
+      </button>
+    </div>
+  </div>
+  
+  <!-- Productos relacionados -->
+  <div class="mt-5 pt-5">
+    <h3 class="mb-4" style="color: #705DA4; font-family: 'Winky Rough', sans-serif;">Productos relacionados</h3>
+    <div id="relacionados" class="row g-4"></div>
+  </div>
+</div>
+
+<!-- Sección Emprende con Nosotros -->
+<section class="seccion-emprende pt-5">
+    <div class="container text-center">
+      <h2 style="color: #705DA4; font-family: 'Winky Rough', sans-serif;" class="mb-4">¿Quieres Emprender con Nosotros?</h2>
+      <p class="lead mb-4">¿Te gustaría comenzar tu propio negocio de pines?
+  Con una compra mínima de 30 unidades, accedes a un descuento especial pensado para que obtengas un excelente margen de ganancia.
+  Personaliza los diseños, elige los que más te gusten y empieza a vender productos únicos y creativos.
+  
+  🎯 Ideal para revender, regalar o emprender desde casa.
+  
+  <!-- Llamado a la acción -->
+  <div class="text-center mt-5">
+    <div class="card border-purple bg-light p-4" style="border-width: 2px;">
+      <h4 style="color: #705DA4;">¿Interesado en ser vendedor?</h4>
+      <p class="mb-4">Contáctanos para conocer los precios especiales por volumen</p>
+      <a href="https://wa.me/573113812334?text=Estoy%20interesado%20en%20ser%20vendedor%20de%20L'Atelier" 
+         class="btn btn-purple btn-lg">
+        <i class="fab fa-whatsapp me-2"></i> Contactar por WhatsApp
+      </a>
+    </div>
+  </div>
+    </div>
+  </section>
+
+<!-- Footer  -->
+<footer class="py-4 mt-5">
+  <div class="container text-center">
     <div class="row">
-      <!-- Imagen principal del producto -->
-      <div class="col-md-6">
-        <img id="imagenPrincipal" class="img-fluid" src="" alt="Imagen del producto">
-        <div id="galeriaImagenes" class="d-flex gap-2 mt-3"></div>
+      <div class="col-md-4">
+        <h5>Contacto</h5>
+        <a href="#" class="text-purple mx-2"><i class="fab fa-google fa-2x"></i></a>
+        <p>tiendalatelier@gmail.com</p>
       </div>
-
-      <!-- Información del producto -->
-      <div class="col-md-6">
-        <h2 id="nombreProducto"></h2>
-        <p id="descripcionProducto"></p>
-        <h4 id="precioProducto" class="text-primary"></h4>
-        <div class="mb-3">
-          <label for="cantidadProducto">Cantidad:</label>
-          <input type="number" id="cantidadProducto" value="1" min="1" class="form-control w-25">
-        </div>
-        <button id="botonAgregar" class="btn btn-success">
-          <i class="fa-solid fa-cart-plus"></i> Añadir al carrito
-        </button>
+      <div class="col-md-4">
+        <h5>Redes Sociales</h5>
+        <a href="https://www.instagram.com/tienda_latelier/" class="text-purple mx-2"><i class="fab fa-instagram fa-2x"></i></a>
+        <a href="https://www.facebook.com/profile.php?id=61557581222388" class="text-purple mx-2"><i class="fab fa-facebook fa-2x"></i></a>
+        <a href="https://www.tiktok.com/@tienda_latelier" class="text-purple mx-2"><i class="fab fa-tiktok fa-2x"></i></a>
+      </div>
+      <div class="col-md-4">
+        <h5>Escribenos</h5>
+        <a href="https://wa.me/573113812334" class="text-purple mx-2"><i class="fab fa-whatsapp fa-2x"></i></a>
+        <p>311 381 2334</p>
       </div>
     </div>
-
-    <!-- Sección de productos relacionados -->
-    <div class="mt-5">
-      <h4>Te puede interesar</h4>
-      <div id="relacionados" class="row mt-3"></div>
-    </div>
   </div>
+</footer>
 
-  <!-- Carrito flotante -->
-  <div id="carritoFlotante">
-    <a href="carrito.html" class="btn btn-primary position-fixed bottom-0 end-0 m-4">
-      <i class="fa-solid fa-cart-shopping"></i>
-      <span id="contadorCarrito" class="badge bg-danger ms-1">0</span>
-    </a>
-  </div>
-
-  <script src="script.js"></script>
+<script src="script.js"></script>
+<script>
+    // Funciones globales
+    function cambiarImagenPrincipal(nuevaImagen, elementoClickeado) {
+      const imagenPrincipal = document.getElementById('imagenPrincipal');
+      if (!imagenPrincipal) return;
+      
+      // Cambiar la imagen principal con efecto fade
+      imagenPrincipal.style.opacity = '0';
+      setTimeout(() => {
+        imagenPrincipal.src = nuevaImagen;
+        imagenPrincipal.style.opacity = '1';
+      }, 150);
+      
+      // Actualizar miniaturas activas
+      const miniaturas = document.querySelectorAll('#galeriaImagenes img');
+      miniaturas.forEach(img => {
+        img.style.border = '1px solid #dee2e6';
+        img.style.borderWidth = '1px';
+      });
+      
+      // Resaltar miniatura seleccionada
+      if (elementoClickeado) {
+        elementoClickeado.style.border = '2px solid #705DA4';
+        elementoClickeado.style.borderWidth = '2px';
+      }
+    }
+    
+    function renderProductos(productos, contenedorId, titulo = '') {
+      const contenedor = document.getElementById(contenedorId);
+      if (!contenedor) return;
+      
+      contenedor.innerHTML = titulo ? `<h4 class="mb-3" style="color: #705DA4; font-family: 'Winky Rough', sans-serif;">${titulo}</h4>` : '';
+      
+      const row = document.createElement('div');
+      row.className = 'row g-4';
+      
+      productos.forEach(p => {
+        const col = document.createElement('div');
+        col.className = 'col-6 col-lg-3 mb-4';
+        col.innerHTML = `
+          <div class="card h-100 shadow">
+            <img src="${p.imagen}" class="card-img-top" alt="${p.nombre}" 
+                 style="cursor:pointer; height: 200px; object-fit: cover;"
+                 onclick="irADetalle(${JSON.stringify(p).replace(/"/g, '&quot;')})">
+            <div class="card-body text-center">
+              <h5 class="card-title text-purple" style="cursor:pointer" 
+                  onclick="irADetalle(${JSON.stringify(p).replace(/"/g, '&quot;')})">${p.nombre}</h5>
+              <p class="text-muted">$${p.precio}</p>
+              <button class="btn btn-purple btn-sm" 
+                      onclick="agregarAlCarrito('${p.nombre}', ${p.precio})">
+                <i class="fas fa-cart-plus"></i> Añadir
+              </button>
+            </div>
+          </div>
+        `;
+        row.appendChild(col);
+      });
+      
+      contenedor.appendChild(row);
+    }
+    
+    document.addEventListener('DOMContentLoaded', async () => {
+      await cargarTodosLosProductos();
+      
+      const producto = JSON.parse(localStorage.getItem('productoSeleccionado'));
+      if (!producto) {
+        window.location.href = 'index.html';
+        return;
+      }
+    
+      // Mostrar información básica
+      document.getElementById('nombreProducto').textContent = producto.nombre;
+      document.getElementById('descripcionProducto').textContent = producto.descripcion || 'Descripción no disponible';
+      document.getElementById('precioProducto').textContent = `$${producto.precio}`;
+    
+      // Configurar galería de imágenes
+      const imagenPrincipal = document.getElementById('imagenPrincipal');
+      const galeria = document.getElementById('galeriaImagenes');
+      
+      // Lista de todas las imágenes
+      const todasLasImagenes = [producto.imagen];
+      if (producto.imagenes_adicionales) {
+        todasLasImagenes.push(...producto.imagenes_adicionales.split(',').map(img => img.trim()));
+      }
+    
+      // Establecer imagen principal
+      imagenPrincipal.src = todasLasImagenes[0];
+      imagenPrincipal.onerror = function() {
+        this.src = 'images/placeholder.jpg';
+      };
+    
+      // Crear miniaturas
+      galeria.innerHTML = todasLasImagenes.map((img, index) => `
+        <img src="${img}" 
+             class="img-thumbnail cursor-pointer" 
+             style="width: 80px; height: 80px; object-fit: cover; ${index === 0 ? 'border: 2px solid #705DA4;' : 'border: 1px solid #dee2e6;'}"
+             onclick="cambiarImagenPrincipal('${img}', this)"
+             alt="Vista ${index + 1} del producto"
+             onerror="this.src='images/placeholder-small.jpg'">
+      `).join('');
+    
+      // Configurar botón de añadir al carrito
+      document.getElementById('botonAgregar').addEventListener('click', () => {
+        const cantidad = parseInt(document.getElementById('cantidadProducto').value) || 1;
+        agregarAlCarrito(producto.nombre, producto.precio, cantidad);
+        
+      });
+    
+      // Cargar productos relacionados
+      if (producto.etiquetas) {
+        const etiquetasProducto = producto.etiquetas.toLowerCase().split(',').map(e => e.trim());
+        const relacionados = allProductos.filter(p => {
+          if (p.nombre === producto.nombre) return false;
+          if (p.etiquetas) {
+            const etiquetasP = p.etiquetas.toLowerCase().split(',').map(e => e.trim());
+            return etiquetasP.some(etiqueta => etiquetasProducto.includes(etiqueta));
+          }
+          return false;
+        }).slice(0, 4);
+        
+        if (relacionados.length > 0) {
+          renderProductos(relacionados, 'relacionados', 'Productos relacionados');
+        }
+      }
+    });
+    </script>
 </body>
 </html>
