@@ -408,3 +408,230 @@ body  {
     flex-direction: column;
     justify-content: space-between;
 }
+
+/* Galería de imágenes */
+#imagenPrincipal {
+  transition: opacity 0.3s ease;
+}
+
+#galeriaImagenes {
+  display: flex;
+  gap: 10px;
+  padding: 10px 0;
+  overflow-x: auto;
+}
+
+#galeriaImagenes img {
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+#galeriaImagenes img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+/* Scrollbar personalizada */
+#galeriaImagenes::-webkit-scrollbar {
+  height: 5px;
+}
+
+#galeriaImagenes::-webkit-scrollbar-thumb {
+  background: #705DA4;
+  border-radius: 5px;
+}
+
+/* Barra de envío gratis */
+.barra-envio {
+  background-color: #705DA4;
+  color: white;
+  padding: 8px 0;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  position: fixed;
+  top: 120px; /* Ajusta según la altura de tus navbars */
+  width: 100%;
+  z-index: 1028;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.barra-envio .icono-envio {
+  margin-right: 10px;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+  40% {transform: translateY(-5px);}
+  60% {transform: translateY(-3px);}
+}
+
+@media (max-width: 768px) {
+  body {
+    padding-top: 180px; /* Ajusta según sea necesario */
+  }
+  
+  .barra-envio {
+    font-size: 14px;
+    padding: 6px 0;
+  }
+}
+
+/* Estilos para el descuento */
+.badge.bg-success {
+  font-size: 0.7em;
+  vertical-align: middle;
+  margin-left: 5px;
+}
+
+.list-group-item {
+  border-left: none;
+  border-right: none;
+}
+
+.qty-controls button {
+  width: 24px;
+  height: 24px;
+  border: none;
+  background: #705DA4;
+  color: white;
+  font-weight: bold;
+  border-radius: 4px;
+  margin: 0 4px;
+  cursor: pointer;
+}
+
+.delete-btn {
+  background: transparent;
+  border: none;
+  color: #dc3545;
+  cursor: pointer;
+}
+
+/* Estilos consistentes para tarjetas de producto */
+.card-producto {
+  border: none;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-producto:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(112, 93, 164, 0.15);
+}
+
+.card-producto-img {
+  height: 220px;
+  object-fit: cover;
+  width: 100%;
+}
+
+.card-producto-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 1.25rem;
+}
+
+.card-producto-title {
+  color: #705DA4;
+  font-family: 'Winky Rough', sans-serif;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.card-producto-text {
+  color: #6c757d;
+  flex-grow: 1;
+}
+
+.card-producto-footer {
+  background: transparent;
+  border-top: none;
+  padding: 0 1.25rem 1.25rem;
+}
+
+.card-producto-price {
+  font-weight: bold;
+  color: #705DA4;
+  font-size: 1.2rem;
+}
+
+.btn-producto {
+  background-color: #705DA4;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.btn-producto:hover {
+  background-color: #5d4a8c;
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* Estilos para el resumen del carrito */
+#resumenCompra {
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 15px;
+}
+
+#listaCarrito li {
+  padding: 8px 0;
+}
+
+.btn-outline-secondary {
+  border-color: #705DA4;
+  color: #705DA4;
+}
+
+.btn-outline-secondary:hover {
+  background-color: #705DA4;
+  color: white;
+}
+
+.btn-outline-danger {
+  border-color: #dc3545;
+  color: #dc3545;
+}
+
+.btn-outline-danger:hover {
+  background-color: #dc3545;
+  color: white;
+}
+
+/* Estilos para el envío tachado */
+.text-decoration-line-through {
+  text-decoration: line-through;
+  opacity: 0.7;
+  margin-right: 5px;
+}
+
+#envioCarrito .text-success {
+  font-weight: bold;
+}
+
+/* Mejora visual para el resumen */
+#resumenCompra {
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  padding: 15px;
+  margin: 15px 0;
+}
+
+#resumenCompra div {
+  padding: 5px 0;
+}
