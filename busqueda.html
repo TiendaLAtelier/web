@@ -11,7 +11,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Winky+Rough:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <link rel="shortcut icon" href="images/Logo_L'atelier.svg" type="image/x-icon">
   <script src="https://kit.fontawesome.com/0347546ae9.js" crossorigin="anonymous"></script>
   
  
@@ -67,6 +66,12 @@
   </div>
 </nav>
 
+<!-- Barra de envío gratis -->
+<div class="barra-envio">
+  <i class="fas fa-truck icono-envio"></i>
+  ¡ENVÍOS GRATIS EN TODA COLOMBIA POR COMPRAS SUPERIORES A $70.000!
+</div>
+
 <!-- Carrito: icono + contador -->
 <button id="carritoIcon" aria-label="Abrir carrito">
   <i class="fa-solid fa-cart-shopping"></i>
@@ -77,13 +82,24 @@
 <div id="carritoMenu" aria-hidden="true">
   <h5>Tu carrito</h5>
   <ul id="listaCarrito" class="list-unstyled mb-3"></ul>
-  <div class="d-flex justify-content-between">
-    <strong>Total:</strong>
-    <span id="totalCarrito">$0.00</span>
+  
+  <div id="resumenCompra">
+    <div class="d-flex justify-content-between">
+      <span>Subtotal:</span>
+      <span id="subtotalCarrito">$0.00</span>
+    </div>
+    <div class="d-flex justify-content-between">
+      <span>Envío:</span>
+      <span id="envioCarrito">$12,000</span>
+    </div>
+    <div class="d-flex justify-content-between mt-2">
+      <strong>Total:</strong>
+      <strong id="totalCarrito">$0.00</strong>
+    </div>
   </div>
+  
   <button id="pagarBtn" class="btn btn-success w-100 mt-3">Pagar por WhatsApp</button>
 </div>
-
 
 <!-- Sección de Tendencias -->
 <div class="coleccion-header text-center">
@@ -123,8 +139,29 @@
 </div>
 
 
+<!-- Sección Emprende con Nosotros -->
+<section class="seccion-emprende pt-5">
+  <div class="container text-center">
+    <h2 style="color: #705DA4; font-family: 'Winky Rough', sans-serif;" class="mb-4">¿Quieres Emprender con Nosotros?</h2>
+    <p class="lead mb-4">¿Te gustaría comenzar tu propio negocio de pines?
+Con una compra mínima de 30 unidades, accedes a un descuento especial pensado para que obtengas un excelente margen de ganancia.
+Personaliza los diseños, elige los que más te gusten y empieza a vender productos únicos y creativos.
 
+🎯 Ideal para revender, regalar o emprender desde casa.
 
+<!-- Llamado a la acción -->
+<div class="text-center mt-5">
+  <div class="card border-purple bg-light p-4" style="border-width: 2px;">
+    <h4 style="color: #705DA4;">¿Interesado en ser vendedor?</h4>
+    <p class="mb-4">Contáctanos para conocer los precios especiales por volumen</p>
+    <a href="https://wa.me/573113812334?text=Estoy%20interesado%20en%20ser%20vendedor%20de%20L'Atelier" 
+       class="btn btn-purple btn-lg">
+      <i class="fab fa-whatsapp me-2"></i> Contactar por WhatsApp
+    </a>
+  </div>
+</div>
+  </div>
+</section>
 
 
 <!-- Footer -->
@@ -162,52 +199,69 @@
 <script src="script.js"></script>
 
 <script>
-    document.addEventListener('DOMContentLoaded', async () => {
-      // 1. Cargar productos primero
-      await cargarTodosLosProductos(); 
+  // Sobrescribir la función de mostrar resultados para esta página específica
+  async function mostrarResultadosBusqueda() {
+    const params = new URLSearchParams(window.location.search);
+    const termino = params.get('q');
+    const contenedor = document.getElementById('resultados-busqueda');
+    const titulo = document.getElementById('titulo-busqueda');
+
+    if (!termino || !contenedor) return;
+
+    await cargarTodosLosProductos();
+    
+    const resultados = allProductos.filter(p => {
+      const campos = [
+        p.nombre?.toLowerCase(),
+        p.descripcion?.toLowerCase(),
+        p.categoria?.toLowerCase(),
+        p.etiquetas?.toLowerCase()
+      ].join(' ');
       
-      // 2. Obtener término de búsqueda
-      const urlParams = new URLSearchParams(window.location.search);
-      const termino = urlParams.get('q');
-      
-      // 3. Actualizar interfaz
-      const titulo = document.getElementById('titulo-busqueda');
-      const contenedor = document.getElementById('resultados-busqueda');
-      
-      if (!termino || !allProductos.length) {
-        titulo.textContent = "Búsqueda no válida";
-        contenedor.innerHTML = '<p class="text-danger">Error cargando resultados</p>';
-        return;
-      }
-  
-      // 4. Buscar y mostrar
-      titulo.textContent = `Resultados para: "${termino}"`;
-      const resultados = allProductos.filter(p => 
-        p.nombre?.toLowerCase().includes(termino.toLowerCase()) ||
-        p.descripcion?.toLowerCase().includes(termino.toLowerCase()) ||
-        p.etiquetas?.toLowerCase().split(',').some(t => t.trim() === termino.toLowerCase())
-      );
-  
-      // 5. Renderizar
-      contenedor.innerHTML = resultados.length 
-        ? resultados.map(p => `
-            <div class="col-md-4 mb-4">
-              <div class="card h-100 shadow">
-                <img src="${p.imagen}" class="card-img-top" alt="${p.nombre}">
-                <div class="card-body text-center">
-                  <h5 class="card-title text-purple">${p.nombre}</h5>
-                  <p class="text-muted">$${p.precio}</p>
-                  <button class="btn btn-purple" 
-                          onclick="agregarAlCarrito('${p.nombre}', ${p.precio})">
-                    <i class="fas fa-cart-plus"></i> Añadir
-                  </button>
-                </div>
+      return campos.includes(termino.toLowerCase());
+    });
+
+    titulo.textContent = `Resultados para: "${termino}"`;
+    
+    contenedor.innerHTML = resultados.length > 0 
+      ? resultados.map(p => `
+          <div class="col-6 col-md-3 mb-4">
+            <div class="card h-100 shadow card-producto">
+              <img src="${p.imagen}" 
+                   class="card-img-top" 
+                   alt="${p.nombre}"
+                   style="cursor: pointer; height: 200px; object-fit: cover;"
+                   onclick="irADetalle(${JSON.stringify(p).replace(/"/g, '&quot;')})">
+              <div class="card-body text-center">
+                <h5 class="card-title text-purple" 
+                    style="cursor: pointer;"
+                    onclick="irADetalle(${JSON.stringify(p).replace(/"/g, '&quot;')})">
+                  ${p.nombre}
+                </h5>
+                <p class="text-muted">$${p.precio}</p>
+                <button class="btn btn-purple btn-sm" 
+                        onclick="event.stopPropagation(); agregarAlCarrito('${p.nombre}', ${p.precio})">
+                  <i class="fas fa-cart-plus"></i> Añadir
+                </button>
               </div>
             </div>
-          `).join('')
-        : '<div class="col-12 text-center py-5"><h4>¡No encontramos resultados!</h4></div>';
-    });
-  </script>
+          </div>
+        `).join('')
+      : `<div class="col-12 text-center py-5">
+           <h4>¡No encontramos resultados para "${termino}"!</h4>
+           <a href="index.html" class="btn btn-purple mt-3">Volver al inicio</a>
+         </div>`;
+  }
+
+  // Inicializar cuando el DOM esté listo
+  document.addEventListener('DOMContentLoaded', () => {
+    // Primero cargar la función principal
+    inicializarPagina();
+    
+    // Luego cargar los resultados específicos
+    mostrarResultadosBusqueda();
+  });
+</script>
 
 </body>
 </html>
