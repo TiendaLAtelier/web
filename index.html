@@ -13,64 +13,69 @@
   <link rel="stylesheet" href="style.css">
   <script src="https://kit.fontawesome.com/0347546ae9.js" crossorigin="anonymous"></script>
   <link rel="shortcut icon" href="images/Logo_L'atelier.svg" type="image/x-icon">
- 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+  
+
 </head>
 <body>
-<!-- Navbar -->
-<nav id="navbar" class="row navbar1 navbar-dark bg-light navegacion gx-0" >
-  <div class="container contenedor-navbar col-1">
-    <a class="navbar-brand Titulo_Tienda" href="index.html"><img src="images/Logo_L'atelier.svg" alt="Logo_Tienda" class="Logo_Tienda" href="index.html" ></a>
-  </div>
-  <div class="col-10 d-flex justify-content-center align-items-center">
-    <a href="index.html"><img src="images/Logo_L'atelier_Tipografia.svg" alt="logotipo" class="tipografia" href="index.html"></a></div>
-    <div class="col-1 d-flex justify-content-end align-items-center">
-      <a class="navbar-brand Titulo_Tienda" href="index.html"><img src="images/Logo_L'atelier.svg" alt="Logo_Tienda" class="Logo_Tienda" href="index.html" ></a>
-    </div>    
-</nav>
 
-<!-- Navbar 2 -->
-<nav class="navbar2 navbar-expand-sm navbar-dark ">
-  <div class="container-fluid">     
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto  mb-auto">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="pines.html">Pines</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" href="cuadros.html">Cuadros</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" href="personalizados.html">Personalizados</a>
-        </li>
-       
-        <li class="nav-item">
-          <a class="nav-link active" href="#nosotros">Nosotros</a>
-        </li>
-      </ul>
-      <form id="searchForm" class="d-flex" action="busqueda.html" method="GET">
-        <input 
-          id="searchInput"
-          class="form-control me-2" 
-          type="search" 
-          name="q"
-          placeholder="Buscar" 
-          aria-label="Buscar"
-          required
-        >
-        <button class="btn btn-outline-light" type="submit">Buscar</button>
-      </form>
+ <!-- Contenedor único: Barra de envíos + Navbar -->
+ <div id="mainNavbar">
+  <!-- Barra de envíos gratis con color resaltado personalizado -->
+  <div id="barra-envio" class="text-white text-center py-2 icono-envio" style="background-color: #ff5722;">
+    <i class="fas fa-truck icono-envio"></i> ¡ENVÍOS GRATIS EN TODA COLOMBIA POR COMPRAS SUPERIORES A $70.000!
+  </div>
+  <!-- Navbar principal -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <!-- Logo siempre visible -->
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <img src="images/Logo_L'atelier_Tipografia.svg" alt="Logo" width="auto" height="50
+        " 
+             class="d-inline-block align-text-top me-2">
+        
+      </a>
+      <!-- Botón hamburguesa en móvil -->
+      <button class="navbar-toggler ms-auto" type="button" 
+              data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent" aria-expanded="false" 
+              aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <!-- Contenido colapsable -->
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" href="pines.html">Pines</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="cuadros.html">Cuadros</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="personalizados.html">Personalizados</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="#nosotros">Nosotros</a>
+          </li>
+        </ul>
+        <!-- Formulario de búsqueda -->
+        <form id="searchForm" class="d-flex ms-lg-3 mt-3 mt-lg-0" action="busqueda.html" method="GET">
+          <input 
+            id="searchInput"
+            class="form-control me-2" 
+            type="search" 
+            name="q"
+            placeholder="Buscar" 
+            aria-label="Buscar" required>
+          <button class="btn btn-outline-dark" type="submit">Buscar</button>
+        </form>
+      </div>
     </div>
-  </div>
-</nav>
-
-<!-- Barra de envío gratis -->
-<div class="barra-envio">
-  <i class="fas fa-truck icono-envio"></i>
-  ¡ENVÍOS GRATIS EN TODA COLOMBIA POR COMPRAS SUPERIORES A $70.000!
+  </nav>
 </div>
+
+
 
 <!-- Sección de Tendencias -->
 <section id="productos" style= "background-color: #d1c4e9;">
@@ -212,7 +217,7 @@
     <h2 style="color: #705DA4; font-family: 'Winky Rough', sans-serif;" class="mb-4">¿Quieres Emprender con Nosotros?</h2>
     <p class="lead mb-4">¿Te gustaría comenzar tu propio negocio de pines?
 Con una compra mínima de 30 unidades, accedes a un descuento especial pensado para que obtengas un excelente margen de ganancia.
-Personaliza los diseños, elige los que más te gusten y empieza a vender productos únicos y creativos. <br><br>
+Personaliza los diseños, elige los que más te gusten y empieza a vender productos únicos y creativos.
 
 🎯 Ideal para revender, regalar o emprender desde casa.
 
@@ -276,6 +281,23 @@ Personaliza los diseños, elige los que más te gusten y empieza a vender produc
       document.getElementById('titulo-busqueda').textContent += `${termino}"`;
       buscarYMostrarResultados(termino);
     }
+  });
+</script>
+
+<script>
+  // Script para mostrar/ocultar el navbar al hacer scroll
+  let lastScroll = 0;
+  window.addEventListener('scroll', function () {
+    const mainNavbar = document.getElementById('mainNavbar');
+    const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+    if (currentScroll > lastScroll) {
+      // Se oculta al hacer scroll hacia abajo
+      mainNavbar.classList.add('navbar-hidden');
+    } else {
+      // Se muestra al hacer scroll hacia arriba
+      mainNavbar.classList.remove('navbar-hidden');
+    }
+    lastScroll = currentScroll <= 0 ? 0 : currentScroll;
   });
 </script>
 

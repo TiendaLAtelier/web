@@ -471,16 +471,6 @@ body  {
   60% {transform: translateY(-3px);}
 }
 
-@media (max-width: 768px) {
-  body {
-    padding-top: 180px; /* Ajusta según sea necesario */
-  }
-  
-  .barra-envio {
-    font-size: 14px;
-    padding: 6px 0;
-  }
-}
 
 /* Estilos para el descuento */
 .badge.bg-success {
@@ -635,3 +625,35 @@ body  {
 #resumenCompra div {
   padding: 5px 0;
 }
+
+#mainNavbar {
+  position: sticky;
+  top: 0;
+  z-index: 1050;
+  transition: transform 0.3s ease-in-out;
+}
+/* Clase para ocultar el navbar */
+.navbar-hidden {
+  transform: translateY(-100%);
+}
+
+/* Contenedor principal con sticky */
+/* #mainNavbar {
+  position: sticky;
+  top: 0;
+  z-index: 1050;
+  transition: transform 0.3s ease-in-out;
+} */
+/* Ocultar el navbar al hacer scroll */
+.navbar-hidden {
+  transform: translateY(-100%);
+}
+/* Ajustes para móviles: asegurar que no haya salto */
+@media (max-width: 576px) {
+  #mainNavbar {
+    margin: 0;
+    padding: 0;
+  }
+    
+}
+
