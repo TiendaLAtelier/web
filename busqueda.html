@@ -16,60 +16,59 @@
  
 </head>
 <body>
-<!-- Navbar -->
-<nav id="navbar" class="row navbar1 navbar-dark bg-light navegacion gx-0" >
-  <div class="container contenedor-navbar col-1">
-    <a class="navbar-brand Titulo_Tienda" href="index.html"><img src="images/Logo_L'atelier.svg" alt="Logo_Tienda" class="Logo_Tienda" href="index.html" ></a>
+<!-- Contenedor único: Barra de envíos + Navbar -->
+<div id="navbar2">
+  <div id="barra-envio" class="text-white text-center py-2" style="background-color: #705DA4;">
+    <i class="fas fa-truck icono-envio"></i> ¡ENVÍOS GRATIS EN TODA COLOMBIA POR COMPRAS SUPERIORES A $70.000!
   </div>
-  <div class="col-10 d-flex justify-content-center align-items-center">
-    <a href="index.html"><img src="images/Logo_L'atelier_Tipografia.svg" alt="logotipo" class="tipografia" href="index.html"></a></div>
-    <div class="col-1 d-flex justify-content-end align-items-center">
-        <a class="navbar-brand Titulo_Tienda" href="index.html"><img src="images/Logo_L'atelier.svg" alt="Logo_Tienda" class="Logo_Tienda" href="index.html" ></a>
-    </div>    
-</nav>
 
-<!-- Navbar 2 -->
-<nav class="navbar2 navbar-expand-sm navbar-dark ">
-  <div class="container-fluid">     
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto  mb-auto">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="pines.html">Pines</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" href="cuadros.html">Cuadros</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" href="personalizados.html">Personalizados</a>
-            </li>
-           
-            <li class="nav-item">
-              <a class="nav-link active" href="#nosotros">Nosotros</a>
-            </li>
-          </ul>
-      <form id="searchForm" class="d-flex" action="busqueda.html" method="GET">
-        <input 
-          id="searchInput"
-          class="form-control me-2" 
-          type="search" 
-          name="q"
-          placeholder="Buscar" 
-          aria-label="Buscar"
-          required
-        >
-        <button class="btn btn-outline-light" type="submit">Buscar</button>
-      </form>
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <!-- Logo siempre visible -->
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <img src="images/Logo_L'atelier_Tipografia.svg" alt="Logo" width="auto" height="50
+        " 
+             class="d-inline-block align-text-top me-2">
+        
+      </a>
+      <!-- Botón hamburguesa en móvil -->
+      <button class="navbar-toggler ms-auto" type="button" 
+              data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent" aria-expanded="false" 
+              aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <!-- Contenido colapsable -->
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" href="pines.html">Pines</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="cuadros.html">Cuadros</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="personalizados.html">Personalizados</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="#nosotros">Nosotros</a>
+          </li>
+        </ul>
+        <!-- Formulario de búsqueda -->
+        <form id="searchForm" class="d-flex ms-lg-3 mt-3 mt-lg-0" action="busqueda.html" method="GET">
+          <input 
+            id="searchInput"
+            class="form-control me-2" 
+            type="search" 
+            name="q"
+            placeholder="Buscar" 
+            aria-label="Buscar" required>
+          <button class="btn btn-outline-light" type="submit">Buscar</button>
+        </form>
+      </div>
     </div>
-  </div>
-</nav>
-
-<!-- Barra de envío gratis -->
-<div class="barra-envio">
-  <i class="fas fa-truck icono-envio"></i>
-  ¡ENVÍOS GRATIS EN TODA COLOMBIA POR COMPRAS SUPERIORES A $70.000!
+  </nav>
 </div>
 
 <!-- Carrito: icono + contador -->
@@ -112,7 +111,7 @@
   </section>
 
 <section id="searchResultsSection" class="container mt-5" style="display: none;">
-  <h2 class="text-center mb-4" style="color: #705DA4;">Resultados de la búsqueda</h2>
+  <h2 class="text-center mb-4" style="color: #705DA4;"></h2>
   <div id="searchResults" class="row gx-4 gy-4 justify-content-center"></div>
 </section>
 

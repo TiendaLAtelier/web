@@ -14,28 +14,6 @@
   gap: 10px;
 }
 
-.navbar1 {
-  background-color: rgba(0, 0, 0, .75) !important;
-  backdrop-filter: blur(10px) !important;
-  justify-content: space-between;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 1030;
-  
-}
-
-.navbar2 {
-  background-color: rgba(0, 0, 0, .75) !important;
-  backdrop-filter: blur(10px) !important;
-  justify-content: space-between;
-  position: fixed;
-  top: 60px;
-  width: 100%;
-  z-index: 1029;
-  
-}
-
 body  {
   background-color: #b09ce996 !important;
 }
@@ -96,7 +74,7 @@ body  {
   color: #705DA4;
   font-size: 32px;
   font-weight: bold;
-  padding: 10px;
+  /* padding: 10px; */
   border-radius: 10px;
 }
 

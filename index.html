@@ -79,19 +79,32 @@
 
 <!-- Sección de Tendencias -->
 <section id="productos" style= "background-color: #d1c4e9;">
-  <h2 class="text-center coleccion-header" style="color: #705DA4;">Colección día de la Madre</h2>
+  <h2 class="text-center coleccion-header mt-3" style="color: #705DA4;">Colección día de la Madre</h2>
 </section>
 
 
 <!-- Imagenes -->
-<section class="imagenes_tendencias">
-  <img src="images/Cuadro_Dia_de_Madres_001.jpeg" alt="cuadro iluminado">
-  <img src="images/Cuadro_Dia_de_Madres_002.jpeg" alt="cuadro iluminado">
-  <img src="images/Cuadro_Dia_de_Madres_003.jpeg" alt="cuadro iluminado">
-  <img src="images/Cuadro_Dia_de_Madres_004.jpeg" alt="cuadro iluminado">
-  <img src="images/Cuadro_Dia_de_Madres_005.jpeg" alt="cuadro iluminado">
-  <img src="images/Cuadro_Dia_de_Madres_006.jpeg" alt="cuadro iluminado">
-</section>
+<div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active" data-bs-interval="3000">
+      <img src="images/Cuadro_Dia_de_Madres_002.jpeg" class="d-block w-100" alt="Imagen de Cuadro Iluminado Alusivo al día de la madre">
+    </div>
+    <div class="carousel-item" data-bs-interval="3000">
+      <img src="images/Cuadro_Dia_de_Madres_004.jpeg" class="d-block w-100" alt="Imagen de Cuadro Iluminado Alusivo al día de la madre">
+    </div>
+    <div class="carousel-item" data-bs-interval="3000">
+      <img src="images/Cuadro_Dia_de_Madres_006.jpeg" class="d-block w-100" alt="Imagen de Cuadro Iluminado Alusivo al día de la madre">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
 
 <!-- Carrito: icono + contador -->
 <button id="carritoIcon" aria-label="Abrir carrito">
@@ -101,6 +114,7 @@
 
 <!-- Menú lateral (oculto por defecto) -->
 <div id="carritoMenu" aria-hidden="true">
+  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="botonCerrar"></button>
   <h5>Tu carrito</h5>
   <ul id="listaCarrito" class="list-unstyled mb-3"></ul>
   
@@ -189,7 +203,7 @@
 
 
 
-<div class="card mb-12 p-4 h-100 shadow" id="nosotros" style="background-color: #d1c4e9; border-radius: 15px;">
+<div class="card mb-12 p-4 mt-5 h-100 shadow" id="nosotros" style="background-color: #d1c4e9; border-radius: 15px;">
   <div class="row g-0">
     <div class="col-md-4">
       <img src="images/Logo_Letra.jpeg" class="img-fluid shadow" style="border-radius: 50%;" alt="Logo de L'Atelier" >
@@ -212,7 +226,7 @@
 
 
 <!-- Sección Emprende con Nosotros -->
-<section class="seccion-emprende pt-5">
+<section class="seccion-emprende pt-5 mt-5">
   <div class="container text-center">
     <h2 style="color: #705DA4; font-family: 'Winky Rough', sans-serif;" class="mb-4">¿Quieres Emprender con Nosotros?</h2>
     <p class="lead mb-4">¿Te gustaría comenzar tu propio negocio de pines?
@@ -241,7 +255,7 @@ Personaliza los diseños, elige los que más te gusten y empieza a vender produc
     <div class="row">
       <div class="col-6 col-md-4">
         <h5>Contacto</h5>
-        <a href="#" class="text-purple mx-2"><i class="fab fa-google fa-2x"></i></a>
+        <a href="#" class="text-center mx-2"><i class="fab fa-google fa-2x"></i></a>
         <p>tiendalatelier@gmail.com</p>
       </div>
       <div class="col-6 col-md-4">

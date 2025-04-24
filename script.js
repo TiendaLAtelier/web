@@ -261,3 +261,4 @@ function irADetalle(producto) {
   localStorage.setItem('productoSeleccionado', JSON.stringify(producto));
   window.location.href = 'producto.html';
 }
+
