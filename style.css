@@ -65,8 +65,8 @@ body  {
 }
 
 .imagenes_tendencias {
-  margin-top: 20px;
-  padding-top: 5px;
+  /* margin-top: 20px;
+  padding-top: 5px; */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   display: flex;
   width: 100%;
@@ -90,7 +90,7 @@ body  {
 }
 
 .coleccion-header {
-  margin-top: 130px;
+  /* margin-top: 130px; */
   margin-bottom: 20px;
   font-family: 'Winky Rough', sans-serif;
   color: #705DA4;
