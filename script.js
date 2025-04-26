@@ -262,3 +262,26 @@ function irADetalle(producto) {
   window.location.href = 'producto.html';
 }
 
+  // Script para mostrar/ocultar el navbar al hacer scroll
+  let lastScroll = 0;
+  window.addEventListener('scroll', function () {
+    const mainNavbar = document.getElementById('mainNavbar');
+    const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+    if (currentScroll > lastScroll) {
+      // Se oculta al hacer scroll hacia abajo
+      mainNavbar.classList.add('navbar-hidden');
+    } else {
+      // Se muestra al hacer scroll hacia arriba
+      mainNavbar.classList.remove('navbar-hidden');
+    }
+    lastScroll = currentScroll <= 0 ? 0 : currentScroll;
+  });
+
+  const currency = function (number) {
+    return new Intl.NumberFormat("es-co", {
+      style: "currency",
+      currency: "COP",
+      minimumFractionDigits: 0,
+    }).format(number);
+  };
+
