@@ -23,27 +23,27 @@
 </head>
 
 <body>
-  <header class="hero">
+  <header class="header">
     <div class="contenedor-navegacion">
-      <div id="barra-envio" class="contenedor-mensaje-envio">
-        <p><i class="fas fa-truck icono-envio"></i>¡Envíos gratis en toda Colombia por compras superiores a <span class="texto-bold">$70.000</span>!</p>
+      <div class="contenedor-mensaje-envio" id="barra-envio">
+        <i class="fas fa-truck icono-envio"></i>
+        <p>¡Envíos gratis en toda Colombia por compras superiores a <span class="texto-bold">$70.000</span>!</p>
       </div>
       <nav class="nav contenedor" id="nav">
-        <!-- <h2 class="nav__logo">Car Emporium</h2> -->
         <a href="index.html"><img class="nav__logo" src="images/Logo_L'atelier_Tipografia.svg" alt="Logo"/></a>
         <ul class="nav__links">
           <li class="nav__item">
+            <a href="index.html" class="nav__link">Inicio</a>
+          </li>
+          <li class="nav__item">
             <a href="pines.html" class="nav__link">Pines</a>
           </li>
-
           <li class="nav__item">
             <a href="cuadros.html" class="nav__link">Cuadros</a>
           </li>
-
           <li class="nav__item">
             <a href="personalizados.html" class="nav__link">Personalizados</a>
           </li>
-
           <li class="nav__item">
             <a href="nosotros.html" class="nav__link">Nosotros</a>
           </li>
@@ -69,7 +69,7 @@
   <section class="contenedor">
     <div class="contenedor-pines">
       <h2 class="titulo-pines">Lista de Pines</h2>
-      <div class="contenedor-lista-producto" id="lista-pines"></div>
+      <div class="contenedor-lista-pines" id="contenedor-lista-pines"></div>
     </div>
   </section>
 
@@ -80,13 +80,14 @@
     <div id="searchResults" class="row gx-4 gy-4 justify-content-center"></div>
   </section>
 
-  <!-- Carrito: icono + contador -->
-  <button id="carritoIcon" aria-label="Abrir carrito">
-    <i class="fa-solid fa-cart-shopping"></i><span id="contadorCarrito" class="badge bg-danger">0</span>
+  <!-- Icono Carrito -->
+  <button class="icono-carrito" id="carritoIcon" aria-label="Abrir carrito">
+    <i class="fa-solid fa-cart-shopping"></i><span id="contadorCarrito" class="badge bg-danger icono-contador-carrito">0</span>
   </button>
+  <!-- Icono Carrito -->
 
-  <!-- Menú lateral (oculto por defecto) -->
-  <div id="carritoMenu" aria-hidden="true">
+  <!-- Menú lateral -->
+  <div class="contenedor-carrito" id="carritoMenu">
     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="botonCerrar"></button>
     <h2>Tu carrito</h2>
     <ul id="listaCarrito" class="list-unstyled mb-3"></ul>
@@ -99,11 +100,12 @@
       <div>
         <p id="subtotalCarrito">$0.000</p>
         <p id="envioCarrito">$0.000</p>
-        <p id="totalCarrito">$0.000</p>
+        <p class="texto-total-carrito" id="totalCarrito">$0.000</p>
       </div>
     </div>
     <button class="boton-pagar-carrito" id="pagarBtn">Pagar por WhatsApp</button>
   </div>
+  <!-- Menú lateral -->
 
   <!-- Footer -->
   <footer class="footer">

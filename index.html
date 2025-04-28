@@ -5,48 +5,45 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>L'Atelier</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-    crossorigin="anonymous"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Winky+Rough:ital,wght@0,300..900;1,300..900&display=swap"
-    rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Winky+Rough:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="httpso://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Winky+Rough:ital,wght@0,300..900;1,300..900&display=swap"
-    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Winky+Rough:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
   <script src="https://kit.fontawesome.com/0347546ae9.js" crossorigin="anonymous"></script>
   <link rel="shortcut icon" href="images/Logo_L'atelier.svg" type="image/x-icon" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" /> -->
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+  <!-- <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.css"/>
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick-theme.css"/> -->
 </head>
 
 <body>
-  <header class="hero">
+  <header class="header">
     <div class="contenedor-navegacion">
-      <div id="barra-envio" class="contenedor-mensaje-envio">
-        <p><i class="fas fa-truck icono-envio"></i>¡Envíos gratis en toda Colombia por compras superiores a <span class="texto-bold">$70.000</span>!</p>
+      <div class="contenedor-mensaje-envio" id="barra-envio">
+        <i class="fas fa-truck icono-envio"></i>
+        <p>¡Envíos gratis en toda Colombia por compras superiores a <span class="texto-bold">$70.000</span>!</p>
       </div>
       <nav class="nav contenedor" id="nav">
-        <!-- <h2 class="nav__logo">Car Emporium</h2> -->
         <a href="index.html"><img class="nav__logo" src="images/Logo_L'atelier_Tipografia.svg" alt="Logo"/></a>
         <ul class="nav__links">
           <li class="nav__item">
+            <a href="index.html" class="nav__link">Inicio</a>
+          </li>
+          <li class="nav__item">
             <a href="pines.html" class="nav__link">Pines</a>
           </li>
-
           <li class="nav__item">
             <a href="cuadros.html" class="nav__link">Cuadros</a>
           </li>
-
           <li class="nav__item">
             <a href="personalizados.html" class="nav__link">Personalizados</a>
           </li>
-
           <li class="nav__item">
             <a href="nosotros.html" class="nav__link">Nosotros</a>
           </li>
@@ -79,16 +76,16 @@
     </div> -->
   </header>
 
-  <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="images/Cuadro_Dia_de_Madres_001.jpeg" class="d-block w-100 imagen-carousel" alt="...">
+        <img src="images/Cuadro_Dia_de_Madres_001.jpeg" class="d-block w-100 imagen-carousel" alt="Imagen Carousel 1">
       </div>
       <div class="carousel-item">
-        <img src="images/Cuadro_Dia_de_Madres_002.jpeg" class="d-block w-100 imagen-carousel" alt="...">
+        <img src="images/Cuadro_Dia_de_Madres_002.jpeg" class="d-block w-100 imagen-carousel" alt="Imagen Carousel 2">
       </div>
       <div class="carousel-item">
-        <img src="images/Cuadro_Dia_de_Madres_003.jpeg" class="d-block w-100 imagen-carousel" alt="...">
+        <img src="images/Cuadro_Dia_de_Madres_003.jpeg" class="d-block w-100 imagen-carousel" alt="Imagen Carousel 3">
       </div>
     </div>
   </div> 
@@ -125,13 +122,12 @@
   <!-- Nuestros Productos -->
 
   <!-- Productos Destacados -->
-   <section class="contenedor-productos-destacados" data-aos="fade-up">
+  <section class="contenedor-productos-destacados" data-aos="fade-up">
     <div class="contenedor">
       <h2 class="titulo-productos-destacados">Productos Destacados</h2>
       <div class="contenedor-producto" id="productosDestacados"></div>
-      <div class="text-center mt-4"></div>
     </div>
-   </section>
+  </section>
   <!-- Productos Destacados -->
 
   <!-- Sección Emprende con Nosotros -->
@@ -182,13 +178,14 @@
   </section>
   <!-- Sobre Nosotros -->
 
-  <!-- Carrito: icono + contador -->
-  <button id="carritoIcon" aria-label="Abrir carrito">
-    <i class="fa-solid fa-cart-shopping"></i><span id="contadorCarrito" class="badge bg-danger">0</span>
+  <!-- Icono Carrito -->
+  <button class="icono-carrito" id="carritoIcon" aria-label="Abrir carrito">
+    <i class="fa-solid fa-cart-shopping"></i><span id="contadorCarrito" class="badge bg-danger icono-contador-carrito">0</span>
   </button>
+  <!-- Icono Carrito -->
 
-  <!-- Menú lateral (oculto por defecto) -->
-  <div id="carritoMenu" aria-hidden="true">
+  <!-- Menú lateral -->
+  <div class="contenedor-carrito" id="carritoMenu">
     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="botonCerrar"></button>
     <h2>Tu carrito</h2>
     <ul id="listaCarrito" class="list-unstyled mb-3"></ul>
@@ -201,11 +198,12 @@
       <div>
         <p id="subtotalCarrito">$0.000</p>
         <p id="envioCarrito">$0.000</p>
-        <p id="totalCarrito">$0.000</p>
+        <p class="texto-total-carrito" id="totalCarrito">$0.000</p>
       </div>
     </div>
     <button class="boton-pagar-carrito" id="pagarBtn">Pagar por WhatsApp</button>
   </div>
+  <!-- Menú lateral -->
 
   <!-- Footer -->
   <footer class="footer">
@@ -236,8 +234,10 @@
   </footer>
   <!-- Footer -->
 
-  <script src="script.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script type="text/javascript" src="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.min.js"></script>
+  <script src="script.js"></script>
   <script>
     AOS.init();
   </script>
