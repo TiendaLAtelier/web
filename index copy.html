@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tienda L'Atelier</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Winky+Rough:ital,wght@0,300..900;1,300..900&display=swap"
+    rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="httpso://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Winky+Rough:ital,wght@0,300..900;1,300..900&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://kit.fontawesome.com/0347546ae9.js" crossorigin="anonymous"></script>
+  <link rel="shortcut icon" href="images/Logo_L'atelier.svg" type="image/x-icon" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+</head>
+
+<body>
+  <!-- Contenedor único: Barra de envíos + Navbar -->
+  <div id="mainNavbar">
+    <!-- Barra de envíos gratis con color resaltado personalizado -->
+    <div id="barra-envio" class="text-white text-center py-2 icono-envio" style="background-color: #6E579F">
+      <i class="fas fa-truck icono-envio"></i> ¡ENVÍOS GRATIS EN TODA COLOMBIA
+      POR COMPRAS SUPERIORES A $70.000!
+    </div>
+    <!-- Navbar principal -->
+    <nav class="navbar navbar-expand-lg" style="background-color: #151B1F;">
+      <div class="container-fluid">
+        <!-- Logo siempre visible -->
+        <a class="navbar-brand d-flex align-items-center" href="index.html">
+          <img src="images/Logo_L'atelier_Tipografia.svg" alt="Logo" width="auto" height="50
+        " class="d-inline-block align-text-top me-2" />
+        </a>
+        <!-- Botón hamburguesa en móvil -->
+        <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- Contenido colapsable -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" href="pines.html">Pines</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="cuadros.html">Cuadros</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="personalizados.html">Personalizados</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="#nosotros">Nosotros</a>
+            </li>
+          </ul>
+          <!-- Formulario de búsqueda -->
+          <form id="searchForm" class="d-flex ms-lg-3 mt-3 mt-lg-0" action="busqueda.html" method="GET">
+            <input id="searchInput" class="form-control me-2" type="search" name="q" placeholder="Buscar"
+              aria-label="Buscar" required />
+            <button class="btn btn-outline-light" type="submit">
+              Buscar
+            </button>
+          </form>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <!-- Sección de Tendencias -->
+  <section id="productos" style="background-color: #d1c4e9">
+    <h2 class="text-center coleccion-header mt-3" style="color: #705da4">
+      Colección día de la Madre
+    </h2>
+  </section>
+
+  <!-- Imagenes -->
+  <div id="carouselExampleFade" class="carousel slide carousel-fade contenedor-carousel" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active" data-bs-interval="3000">
+        <img src="images/Cuadro_Dia_de_Madres_002.jpeg" class="d-block w-100 imagenes-carousel"
+          alt="Imagen de Cuadro Iluminado Alusivo al día de la madre" />
+      </div>
+      <div class="carousel-item" data-bs-interval="3000">
+        <img src="images/Cuadro_Dia_de_Madres_004.jpeg" class="d-block w-100 imagenes-carousel"
+          alt="Imagen de Cuadro Iluminado Alusivo al día de la madre" />
+      </div>
+      <div class="carousel-item" data-bs-interval="3000">
+        <img src="images/Cuadro_Dia_de_Madres_006.jpeg" class="d-block w-100 imagenes-carousel"
+          alt="Imagen de Cuadro Iluminado Alusivo al día de la madre" />
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+  <!-- Carrito: icono + contador -->
+  <button id="carritoIcon" aria-label="Abrir carrito">
+    <i class="fa-solid fa-cart-shopping"></i>
+    <span id="contadorCarrito" class="badge bg-danger">0</span>
+  </button>
+
+  <!-- Menú lateral (oculto por defecto) -->
+  <div id="carritoMenu" aria-hidden="true">
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="botonCerrar"></button>
+    <h5>Tu carrito</h5>
+    <ul id="listaCarrito" class="list-unstyled mb-3"></ul>
+
+    <div id="resumenCompra">
+      <div class="d-flex justify-content-between">
+        <span>Subtotal:</span>
+        <span id="subtotalCarrito">$0.00</span>
+      </div>
+      <div class="d-flex justify-content-between">
+        <span>Envío:</span>
+        <span id="envioCarrito">$12,000</span>
+      </div>
+      <div class="d-flex justify-content-between mt-2">
+        <strong>Total:</strong>
+        <strong id="totalCarrito">$0.00</strong>
+      </div>
+    </div>
+
+    <button id="pagarBtn" class="btn btn-success w-100 mt-3">
+      Pagar por WhatsApp
+    </button>
+  </div>
+
+  <section class="destacados container mt-0">
+    <h2 class="text-center coleccion-header" style="color: #705da4">
+      Productos Destacados
+    </h2>
+    <div id="productosDestacados" class="row gx-4 gy-4 justify-content-center"></div>
+    <div class="text-center mt-4"></div>
+  </section>
+
+  <section id="searchResultsSection" class="container mt-5" style="display: none">
+    <h2 class="text-center mb-4" style="color: #705da4">
+      Resultados de la búsqueda
+    </h2>
+    <div id="searchResults" class="row gx-4 gy-4 justify-content-center"></div>
+  </section>
+
+  <section id="productos" style="padding: 2rem; ">
+    <h2 class="text-center coleccion-header" style="color: #705da4">
+      Nuestros Productos
+    </h2>
+
+    <div class="container">
+      <div class="row justify-content-center g-4">
+        <!-- Tarjeta Pines -->
+        <div class="col-md-4">
+          <a href="pines.html" class="card-link">
+            <div class="card h-100 shadow">
+              <img src="images/pines.jpeg" class="card-img-top" alt="Pines personalizados" />
+              <div class="card-body text-center">
+                <h5 class="card-title" style="color: #705da4">Pines</h5>
+                <p class="card-text">
+                  Colección exclusiva de pines artesanales
+                </p>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <!-- Tarjeta Cuadros -->
+        <div class="col-md-4">
+          <a href="cuadros.html" class="card-link">
+            <div class="card h-100 shadow">
+              <img src="images/Cuadro_Dia_de_Madres_004.jpeg" class="card-img-top" alt="Cuadros iluminados" />
+              <div class="card-body text-center">
+                <h5 class="card-title" style="color: #705da4">Cuadros</h5>
+                <p class="card-text">
+                  Diseños luminosos para decorar tus espacios
+                </p>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <!-- Tarjeta Personalizados -->
+        <div class="col-md-4">
+          <a href="personalizados.html" class="card-link">
+            <div class="card h-100 shadow">
+              <img src="images/Cuadro_Valen_Encendido.jpeg" class="card-img-top" alt="Productos personalizados" />
+              <div class="card-body text-center">
+                <h5 class="card-title" style="color: #705da4">
+                  Personalizados
+                </h5>
+                <p class="card-text">Crea tu diseño único y especial</p>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sobre Nosotros -->
+  <section class="sobre-nosotros">
+    <div class="contenedor contenedor-nosotros">
+      <img src="images/Logo_Letra.jpeg" class="imgagen-nosotros" alt="Logo Tienda" />
+      <div class="contenedor-texto-nosotros">
+        <h3 class="titulo-nosotros">Acerca de nosotros</h3>
+        <p>Eh, ¡Qué más parcer@s! En L'Atelier nos la jugamos pa’ convertir
+          lo simple en pura magia. Somos expertos en crear pines de acrílico
+          con resina epoxi 🎨✨, ¡unas joyitas que no solo brillan más que
+          un atardecer en la costa, sino que duran pa’ toda la vida! Ideales
+          pa’ que te montes en la moda y muestres tu estilo como un pro.</p>
+        <p>Y si de decorar se trata, nuestros cuadros iluminados ✨ son
+          una chimba: con luces que juegan y colores que se llevan las
+          miradas. Transformamos tu casa u oficina en un parche lleno de
+          mucho estilo.</p>
+        <p>Aquí no somos solo una tienda: somos un team de locos por el arte
+          que le metemos el alma a cada detalle. ¿La razón? Creemos que lo
+          hecho a mano tiene ese 'ñapa' especial que ninguna máquina da. Por
+          eso, desde Medellín pa’ el mundo 🇨🇴🌍, le ponemos corazón ❤️ a
+          cada pin y cuadro, pa’ que tú te sientas orgulloso de llevar o
+          mostrar algo único, ¡como los paisajes de nuestro país!</p>
+        <p>¿La meta? Que cuando veas nuestras piezas, no solo digas "¡Qué
+          chévere!", sino que sientas esa calentura en el pecho de saber que
+          llevas un pedacito de arte colombiano contigo. ¡Aquí en L'Atelier,
+          no vendemos cositas bonitas… vendemos historias que brillan y
+          enamoran! 💫🤝 ¡A la orden, parcer@! 🛎️✨</p>
+        <p class="firma-nosotros">Tienda L'Atelier</p>
+      </div>
+    </div>
+  </section>
+  <!-- Sobre Nosotros -->
+
+  <!-- Sección Emprende con Nosotros -->
+  <section class="contenedor trabaja-nosotros">
+    <img class="imagen-trabaja-nosotros" src="images/trabajaconnosotros.jpg" alt="Imagen Emprende">
+    <div class="contenedor-trabaja-nosotros">
+      <h2 class="titulo-trabaja-nosotros">¿Quieres Emprender con Nosotros?</h2>
+      <p>¿Te gustaría comenzar tu propio negocio de pines? Con una compra mínima de 30 unidades, accedes a un descuento especial pensado para que obtengas un excelente margen de ganancia. Personaliza los diseños, elige los que más te gusten y empieza a vender productos únicos y creativos. 🎯 Ideal para revender, regalar o emprender desde casa.</p>   
+      <p class="contactanos-trabaja-nosotros">Contáctanos para conocer los precios especiales por volumen</p>
+      <a class="boton-trabaja-nosotros" href="https://wa.me/573113812334?text=Estoy%20interesado%20en%20ser%20vendedor%20de%20L'Atelier">
+        <i class="fab fa-whatsapp me-2"></i> Contactar por WhatsApp
+      </a>
+    </div>
+  </section>
+  <!-- Sección Emprende con Nosotros -->
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="contenedor contenedor-footer">
+      <div class="contenedor-redes-footer">
+        <div>
+          <h3>Contacto</h3>
+          <a href="#" class="text-center mx-2"><i class="fab fa-google icono"></i></a>
+          <p>tiendalatelier@gmail.com</p>
+        </div>
+        <div>
+          <h3>Redes Sociales</h3>
+          <a href="https://www.instagram.com/tienda_latelier/" class="text-purple mx-2"><i class="fab fa-instagram icono"></i></a>
+          <a href="https://www.facebook.com/profile.php?id=61557581222388" class="text-purple mx-2"><i class="fab fa-facebook icono"></i></a>
+          <a href="https://www.tiktok.com/@tienda_latelier" class="text-purple mx-2"><i class="fab fa-tiktok icono"></i></a>
+          <p>@tienda_latelier</p>
+        </div>
+        <div>
+          <h3>Escríbenos</h3>
+          <a href="https://wa.me/573113812334" class="text-purple mx-2"><i class="fab fa-whatsapp icono"></i></a>
+          <p>+57 (311) 381 2334</p>
+        </div>
+      </div>
+    </div>
+    <div class="contenedor contenedor-copyright">
+      <p>&copy; Copyright<script>document.write(new Date().getFullYear());</script> | Desarrollado por L'Atelier.</p>
+    </div>
+  </footer>
+  <!-- Footer -->
+
+
+  <script src="script.js"></script>
+
+  <script>
+    // Script específico para procesar la búsqueda
+    document.addEventListener("DOMContentLoaded", () => {
+      const params = new URLSearchParams(window.location.search);
+      const termino = params.get("q");
+
+      if (termino) {
+        document.getElementById(
+          "titulo-busqueda"
+        ).textContent += `${termino}"`;
+        buscarYMostrarResultados(termino);
+      }
+    });
+  </script>
+
+  <script>
+    // Script para mostrar/ocultar el navbar al hacer scroll
+    let lastScroll = 0;
+    window.addEventListener("scroll", function () {
+      const mainNavbar = document.getElementById("mainNavbar");
+      const currentScroll =
+        window.pageYOffset || document.documentElement.scrollTop;
+      if (currentScroll > lastScroll) {
+        // Se oculta al hacer scroll hacia abajo
+        mainNavbar.classList.add("navbar-hidden");
+      } else {
+        // Se muestra al hacer scroll hacia arriba
+        mainNavbar.classList.remove("navbar-hidden");
+      }
+      lastScroll = currentScroll <= 0 ? 0 : currentScroll;
+    });
+  </script>
+</body>
+
+</html>
