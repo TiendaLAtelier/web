@@ -214,7 +214,12 @@ async function cargarTodosLosProductos() {
   try {
     const respuesta = await fetch('https://api.sheetbest.com/sheets/b97a4c5b-6caa-426f-8d11-c9ee3269a687');
     allProductos = await respuesta.json();
-    renderProductos(allProductos, 'contenedor-lista-pines');
+    let listaPines = allProductos.filter(row => row.categoria?.toLowerCase() == 'pines');
+    renderProductos(listaPines, 'contenedor-lista-pines');
+    let listaCuadros = allProductos.filter(row => row.categoria?.toLowerCase() == 'cuadros');
+    renderProductos(listaCuadros, 'productos-categoria');
+    let listaPersonalizados = allProductos.filter(row => row.categoria?.toLowerCase() == 'personalizados');
+    renderProductos(listaPersonalizados, 'productos-categoria-personalizados');
     return true;
   } catch (error) {
     console.error('Error cargando productos:', error);

@@ -250,6 +250,11 @@ ul {
   object-fit: cover;
 }
 
+#carrusel-tendencias{
+  padding: 11rem 0 0 0;
+}
+
+
 /*---------------------------------------------- Productos Destacados ----------------------------------------------*/
 .contenedor-productos-destacados {
   padding: 2rem;
@@ -334,7 +339,9 @@ ul {
 
 /*---------------------------------------------- Nuestros Productos ----------------------------------------------*/
 .contenedor-nuestros-productos,
-.contenedor-productos-destacados {
+.contenedor-productos-destacados,
+.productos-categoria,
+.productos-categoria-personalizados {
   padding: 4rem 0;
 }
 
@@ -568,7 +575,9 @@ ul {
 }
 
 /*---------------------------------------------- Pines ----------------------------------------------*/
-.contenedor-lista-pines {
+.contenedor-lista-pines,
+.productos-categoria-personalizados,
+.productos-categoria {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
@@ -698,6 +707,16 @@ ul {
   .icono-envio {
     margin-right: 0;
   }
+
+  .contenedor-lista-pines,
+  .productos-categoria-personalizados,
+  .productos-categoria {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .imagen-carousel {
+    height: 65rem;    
+  }
 }
 
 /*---------------------------------------------- Keyframes ----------------------------------------------*/
@@ -810,4 +829,8 @@ ul {
 
 #envioCarrito .text-success {
   font-weight: bold;
+}
+
+.carousel-fade{
+  z-index: -999;
 }
